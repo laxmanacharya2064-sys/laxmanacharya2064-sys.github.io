@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laxman Acharya - Links</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .youtube-color { color: #FF0000; }
+        .linkedin-color { color: #0A66C2; }
+        .instagram-color { color: #E1306C; }
+    
+        .facebook-color { color: #1877F2; }</style>
+</head>
+<body class="bg-black text-white">
+<div class="container mx-auto max-w-lg p-4 pt-12 min-h-screen flex flex-col">
+<header class="text-center mb-8">
+<img alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-gray-700 object-cover" src="490394629_1233272185098725_5928986287935745071_n.jpg"/>
+<h1 class="text-2xl font-bold">Laxman Acharya</h1>
+<p class="text-gray-400">+2 Student | Creator</p>
+<div class="flex justify-center space-x-4 mt-4">
+<a class="youtube-color" href="https://www.youtube.com/channel/UCT3_3wSPB6RlMlZLx0p0e7A" target="_blank"><i data-feather="youtube"></i></a>
+<a class="linkedin-color" href="https://www.linkedin.com/in/laxman-acharya-b4622b271/" target="_blank"><i data-feather="linkedin"></i></a>
+<a class="instagram-color" href="https://www.instagram.com/law_xman/" target="_blank"><i data-feather="instagram"></i></a>
+<a class="facebook-color" href="https://www.facebook.com/laxman.acharya.731135" target="_blank"><i data-feather="facebook"></i></a></div>
+</header>
+<main class="space-y-4 flex-grow" id="links-container"></main>
+<footer class="text-center py-6">
+<button class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
+            Share My Profile
+        </button>
+</footer>
+</div>
+<script>
+    const links = [
+        { title: 'Facebook', url: 'https://www.facebook.com/laxman.acharya.731135', icon: 'facebook', color: '#1877F2' },
+        { title: 'YouTube', url: 'https://www.youtube.com/channel/UCT3_3wSPB6RlMlZLx0p0e7A', icon: 'youtube', color: '#FF0000' },
+        { title: 'LinkedIn', url: 'https://www.linkedin.com/in/laxman-acharya-b4622b271/', icon: 'linkedin', color: '#0A66C2' },
+        { title: 'Instagram', url: 'https://www.instagram.com/law_xman/', icon: 'instagram', color: '#E1306C' },
+        { title: 'Twitter (X)', url: 'https://x.com/law_xman', icon: 'twitter', color: '#FFFFFF' },
+        { title: 'TikTok', url: 'https://www.tiktok.com/@law_xman7', icon: 'link', color: '#00F2EA' },
+        { title: 'Spotify', url: 'https://open.spotify.com/user/31en4wdzgvs2xtfbq76dnqnqnvii?si=a09f26753aa449cb', icon: 'music', color: '#1DB954' }
+    ];
+
+    const container = document.getElementById('links-container');
+
+    function renderLinks() {
+        links.forEach(link => {
+            const a = document.createElement('a');
+            a.href = link.url;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.className = 'bg-gray-800 hover:bg-gray-700 text-white font-semibold py-4 px-5 rounded-lg flex items-center justify-between transition duration-300';
+            a.innerHTML = `
+                <div class="flex items-center">
+                    <i data-feather="${link.icon}" class="w-6 h-6 mr-4" style="color: ${link.color};"></i>
+                    <span>${link.title}</span>
+                </div>
+                <i data-feather="external-link" class="w-5 h-5 text-gray-400"></i>
+            `;
+            container.appendChild(a);
+        });
+        feather.replace();
+    }
+
+    document.addEventListener('DOMContentLoaded', renderLinks);
+</script>
+</body>
+</html>
